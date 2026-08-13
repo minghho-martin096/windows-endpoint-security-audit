@@ -5,4 +5,4 @@ The Windows Endpoint Security Audit is a lightweight cybersecurity tool designed
 
 Members: Martin, Jordan
 
-**Note (Currenty under development)**
+**Note (Currently under development)**
