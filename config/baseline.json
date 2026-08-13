@@ -1,1 +1,6 @@
-{}
+{
+  "windows_firewall_enabled": true,
+  "microsoft_defender_enabled": true,
+  "defender_realtime_protection_enabled": true,
+  "guest_account_enabled": false
+}
