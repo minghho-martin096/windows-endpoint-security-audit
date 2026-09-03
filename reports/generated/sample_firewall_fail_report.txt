@@ -1,0 +1,33 @@
+WINDOWS ENDPOINT SECURITY AUDIT REPORT
+=============================================
+Generated: 2026-09-03 20:16:27
+
+Windows Firewall
+----------------
+Expected: Enabled
+Actual: Disabled
+Result: FAIL
+Severity: HIGH
+Risk: A disabled Windows Firewall can increase the system's exposure to unauthorized network connections and malicious network traffic.
+Recommendation: Enable Windows Defender Firewall for the Domain, Private, and Public network profiles.
+
+Microsoft Defender
+------------------
+Expected: Enabled
+Actual: Enabled
+Result: PASS
+Severity: HIGH
+
+Defender Real-Time Protection
+-----------------------------
+Expected: Enabled
+Actual: Enabled
+Result: PASS
+Severity: HIGH
+
+Guest Account
+-------------
+Expected: Disabled
+Actual: Disabled
+Result: PASS
+Severity: MEDIUM
