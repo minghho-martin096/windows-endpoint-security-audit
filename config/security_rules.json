@@ -1,1 +1,25 @@
+{
+  "windows_firewall_enabled": {
+    "severity": "HIGH",
+    "risk": "A disabled firewall can increase exposure to unauthorized network connections and malicious traffic.",
+    "remediation": "Enable Windows Defender Firewall for all network profiles."
 
+  },
+  "microsoft_defender_enabled": {
+    "severity": "HIGH",
+    "risk": "If Microsoft Defender Antivirus is disabled, the system may have reduced protection against malware and other malicious software.",
+
+    "remediation": "Enable Microsoft Defender Antivirus and confirm that antivirus protection is active."
+  },
+  "defender_realtime_protection_enabled": {
+    "severity": "HIGH",
+    "risk": "Disabled real-time protection can allow malicious files or processes to run without being detected immediately.",
+
+    "remediation": "Enable Microsoft Defender Real-Time Protection in Windows Security."
+  },
+  "guest_account_enabled": {
+    "severity": "MEDIUM",
+    "risk": "An enabled Guest account can provide unnecessary access to the system and increase the attack surface.",
+    "remediation": "Disable the Guest account unless it is specifically required."
+  }
+}
