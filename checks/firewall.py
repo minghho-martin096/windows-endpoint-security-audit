@@ -27,7 +27,10 @@ def check_firewall():
 
     status = "PASS" if actual == expected else "FAIL"
 
-    print("Windows Firewall")
-    print(f"Expected: {'Enabled' if expected else 'Disabled'}")
-    print(f"Actual: {'Enabled' if actual else 'Disabled'}")
-    print(f"Result: {status}")
+    return {
+        "id": "windows_firewall_enabled",
+        "name": "Windows Firewall",
+        "expected": "Enabled" if expected else "Disabled",
+        "actual": "Enabled" if actual else "Disabled",
+        "result": status
+    }

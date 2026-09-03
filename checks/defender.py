@@ -22,7 +22,10 @@ def check_defender():
 
     status = "PASS" if actual == expected else "FAIL"
 
-    print("\nMicrosoft Defender")
-    print(f"Expected: {'Enabled' if expected else 'Disabled'}")
-    print(f"Actual: {'Enabled' if actual else 'Disabled'}")
-    print(f"Result: {status}")
+    return {
+        "id": "microsoft_defender_enabled",
+        "name": "Microsoft Defender",
+        "expected": "Enabled" if expected else "Disabled",
+        "actual": "Enabled" if actual else "Disabled",
+        "result": status
+    }

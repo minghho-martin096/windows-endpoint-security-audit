@@ -22,7 +22,10 @@ def check_defender_realtime():
 
     status = "PASS" if actual == expected else "FAIL"
 
-    print("\nDefender Real-Time Protection")
-    print(f"Expected: {'Enabled' if expected else 'Disabled'}")
-    print(f"Actual: {'Enabled' if actual else 'Disabled'}")
-    print(f"Result: {status}")
+    return {
+        "id": "defender_realtime_protection_enabled",
+        "name": "Defender Real-Time Protection",
+        "expected": "Enabled" if expected else "Disabled",
+        "actual": "Enabled" if actual else "Disabled",
+        "result": status
+    }
