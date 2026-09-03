@@ -1,8 +1,12 @@
+import json
 from datetime import datetime
 from pathlib import Path
 
 
 def generate_report(results):
+    with open("config/security_rules.json", "r") as file:
+        security_rules = json.load(file)
+
     lines = []
 
     lines.append("WINDOWS ENDPOINT SECURITY AUDIT REPORT")
@@ -11,11 +15,19 @@ def generate_report(results):
     lines.append("")
 
     for result in results:
+        rule = security_rules[result["id"]]
+
         lines.append(result["name"])
         lines.append("-" * len(result["name"]))
         lines.append(f'Expected: {result["expected"]}')
         lines.append(f'Actual: {result["actual"]}')
         lines.append(f'Result: {result["result"]}')
+        lines.append(f'Severity: {rule["severity"]}')
+
+        if result["result"] == "FAIL":
+            lines.append(f'Risk: {rule["risk"]}')
+            lines.append(f'Recommendation: {rule["remediation"]}')
+
         lines.append("")
 
     report_text = "\n".join(lines)
