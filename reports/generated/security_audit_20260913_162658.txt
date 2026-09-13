@@ -1,0 +1,31 @@
+WINDOWS ENDPOINT SECURITY AUDIT REPORT
+=============================================
+Generated: 2026-09-13 16:26:58
+
+Windows Firewall
+----------------
+Expected: Enabled
+Actual: Enabled
+Result: PASS
+Severity: HIGH
+
+Microsoft Defender
+------------------
+Expected: Enabled
+Actual: Enabled
+Result: PASS
+Severity: HIGH
+
+Defender Real-Time Protection
+-----------------------------
+Expected: Enabled
+Actual: Enabled
+Result: PASS
+Severity: HIGH
+
+Guest Account
+-------------
+Expected: Disabled
+Actual: Disabled
+Result: PASS
+Severity: MEDIUM
