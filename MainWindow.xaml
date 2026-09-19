@@ -1,0 +1,50 @@
+﻿<Window x:Class="SecurityAuditGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CyberChallangeUI"
+        mc:Ignorable="d"
+        Title="Windows EndPoint Security Audit" Height="450" Width="800">
+
+    <!-- Grid is the main layout container, split into 4 stacked rows -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Row 0: heading text, sized to fit its content -->
+            <RowDefinition Height="Auto"/>
+            <!-- Row 1: Run Audit button, sized to fit its content -->
+            <RowDefinition Height="Auto"/>
+            <!-- Row 2: results + detail section, takes up all remaining space -->
+            <RowDefinition Height="*"/>
+            <!-- Row 3: Generate Report button, sized to fit its content -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- App title/heading shown at the top of the window -->
+        <TextBlock Grid.Row="0" Text="Windows EndPoint Security Audit" FontSize="20" FontWeight="Bold" Margin="10"/>
+
+        <!-- Button that triggers the security audit when clicked (see RunAuditButton_Click in code-behind) -->
+        <Button x:Name="RunAuditButton" Content="Run Security Audit" Width="180" Height="35" Margin="10" HorizontalAlignment="Left" Grid.Row="1" Click="RunAuditButton_Click"/>
+
+        <StackPanel Grid.Row="2" Margin="10">
+            <!-- Result line for the Windows Firewall check -->
+            <TextBlock x:Name="FirewallResultText" Text="Windows Firewall: PASS" FontSize="14" Margin="0,5"/>
+            <!-- Result line for the Microsoft Defender check -->
+            <TextBlock x:Name="DefenderResultText" Text="Microsoft Defender: PASS" FontSize="14" Margin="0,5"/>
+            <!-- Result line for the Real-Time Protection check -->
+            <TextBlock x:Name="RealtimeResultText" Text="Real-Time Protection: FAIL" FontSize="14" Margin="0,5"/>
+            <!-- Result line for the Guest Account check -->
+            <TextBlock x:Name="GuestResultText" Text="Guest Account: PASS" FontSize="14" Margin="0,5"/>
+
+            <!-- Bold heading naming which check failed and its severity level -->
+            <TextBlock x:Name="DetailTitleText" Text="Real-Time Protection - Severity: HIGH" FontWeight="Bold" Margin="0,20,0,0"/>
+            <!-- Explanation of the risk posed by the failed check -->
+            <TextBlock x:Name="DetailRiskText" Text="Risk: Disabled real-time protection may allow malware to run undetected." TextWrapping="Wrap" Margin="0,5"/>
+            <!-- Recommended fix for the failed check -->
+            <TextBlock x:Name="DetailRemediationText" Text="Recommendation: Enable Real-Time Protection through Windows Security." TextWrapping="Wrap" Margin="0,5"/>
+        </StackPanel>
+
+        <!-- Button that triggers report generation when clicked (see GenerateReportButton_Click in code-behind) -->
+        <Button x:Name="GenerateReportButton" Content="Generate Report" Width="180" Height="35" Margin="10" HorizontalAlignment="Left" Grid.Row="3" Click="GenerateReportButton_Click"/>
+    </Grid>
+</Window>
