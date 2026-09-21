@@ -6,7 +6,6 @@ C:\Users\homin\OneDrive\Desktop\43001 Cybersecurity Challenge Studio\Project\Git
 C:\Users\homin\OneDrive\Desktop\43001 Cybersecurity Challenge Studio\Project\Github\windows-endpoint-security-audit\gui\obj\Debug\net10.0-windows\MainWindow.g.cs
 C:\Users\homin\OneDrive\Desktop\43001 Cybersecurity Challenge Studio\Project\Github\windows-endpoint-security-audit\gui\obj\Debug\net10.0-windows\App.g.cs
 C:\Users\homin\OneDrive\Desktop\43001 Cybersecurity Challenge Studio\Project\Github\windows-endpoint-security-audit\gui\obj\Debug\net10.0-windows\SecurityAuditGUI_MarkupCompile.cache
-C:\Users\homin\OneDrive\Desktop\43001 Cybersecurity Challenge Studio\Project\Github\windows-endpoint-security-audit\gui\obj\Debug\net10.0-windows\SecurityAuditGUI_MarkupCompile.lref
 C:\Users\homin\OneDrive\Desktop\43001 Cybersecurity Challenge Studio\Project\Github\windows-endpoint-security-audit\gui\obj\Debug\net10.0-windows\MainWindow.baml
 C:\Users\homin\OneDrive\Desktop\43001 Cybersecurity Challenge Studio\Project\Github\windows-endpoint-security-audit\gui\obj\Debug\net10.0-windows\SecurityAuditGUI.g.resources
 C:\Users\homin\OneDrive\Desktop\43001 Cybersecurity Challenge Studio\Project\Github\windows-endpoint-security-audit\gui\obj\Debug\net10.0-windows\SecurityAuditGUI.GeneratedMSBuildEditorConfig.editorconfig
