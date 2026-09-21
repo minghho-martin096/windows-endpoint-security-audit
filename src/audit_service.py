@@ -1,10 +1,32 @@
-from src.audit_service import run_audit
-from reports.report_generator import generate_report
+import json
+
+from checks.firewall import check_firewall
+from checks.defender import check_defender
+from checks.defender_realtime import check_defender_realtime
+from checks.guest_account import check_guest_account
 
 
-results = run_audit()
+def run_audit():
+    with open("config/security_rules.json", "r") as file:
+        security_rules = json.load(file)
 
-report, report_path = generate_report(results)
+    results = [
+        check_firewall(),
+        check_defender(),
+        check_defender_realtime(),
+        check_guest_account()
+    ]
 
-print(report)
-print(f"Report saved to: {report_path}")
+    for result in results:
+        rule = security_rules[result["id"]]
+
+        result["severity"] = rule["severity"]
+
+        if result["result"] == "FAIL":
+            result["risk"] = rule["risk"]
+            result["remediation"] = rule["remediation"]
+        else:
+            result["risk"] = ""
+            result["remediation"] = ""
+
+    return results
