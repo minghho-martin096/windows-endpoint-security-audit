@@ -7,7 +7,11 @@ from checks.guest_account import check_guest_account
 
 
 def run_audit():
-    with open("config/security_rules.json", "r") as file:
+    with open(
+        "config/security_rules.json",
+        "r",
+        encoding="utf-8"
+    ) as file:
         security_rules = json.load(file)
 
     results = [
@@ -20,13 +24,9 @@ def run_audit():
     for result in results:
         rule = security_rules[result["id"]]
 
+        result["explanation"] = rule["explanation"]
         result["severity"] = rule["severity"]
-
-        if result["result"] == "FAIL":
-            result["risk"] = rule["risk"]
-            result["remediation"] = rule["remediation"]
-        else:
-            result["risk"] = ""
-            result["remediation"] = ""
+        result["risk"] = rule["risk"]
+        result["remediation"] = rule["remediation"]
 
     return results

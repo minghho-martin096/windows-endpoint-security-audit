@@ -1,0 +1,72 @@
+WINDOWS ENDPOINT SECURITY AUDIT REPORT
+=============================================
+Generated: 2026-10-02 16:41:20
+
+AUDIT SUMMARY
+-------------
+Total checks: 4
+Passed: 4
+Failed: 0
+
+DETAILED RESULTS
+=============================================
+
+Windows Firewall
+----------------
+Explanation: Windows Firewall is the built-in host-based firewall in Windows. It controls incoming and outgoing network traffic and applies security rules across the Domain, Private, and Public network profiles.
+
+Expected: Enabled
+Actual: Enabled
+Result: PASS
+Severity: HIGH
+
+Assessment: The current configuration matches the expected security baseline.
+Risk if Misconfigured: A disabled Windows Firewall can increase the system's exposure to unauthorized network connections and malicious network traffic.
+Recommended Action: No immediate remediation is required. Maintain the expected secure state. Enable Windows Defender Firewall for the Domain, Private, and Public network profiles.
+
+=============================================
+
+Microsoft Defender
+------------------
+Explanation: Microsoft Defender Antivirus is the built-in antimalware protection included with Windows. It helps detect, block, and respond to malware and other potentially malicious software.
+
+Expected: Enabled
+Actual: Enabled
+Result: PASS
+Severity: HIGH
+
+Assessment: The current configuration matches the expected security baseline.
+Risk if Misconfigured: If Microsoft Defender Antivirus is disabled, the system may have reduced protection against malware and other malicious software.
+Recommended Action: No immediate remediation is required. Maintain the expected secure state. Enable Microsoft Defender Antivirus and verify that antivirus protection is active.
+
+=============================================
+
+Defender Real-Time Protection
+-----------------------------
+Explanation: Microsoft Defender Real-Time Protection continuously monitors files and programs as they are accessed or executed so that potentially malicious activity can be detected immediately.
+
+Expected: Enabled
+Actual: Enabled
+Result: PASS
+Severity: HIGH
+
+Assessment: The current configuration matches the expected security baseline.
+Risk if Misconfigured: Disabled real-time protection can allow malicious files or processes to execute without being detected immediately.
+Recommended Action: No immediate remediation is required. Maintain the expected secure state. Enable Microsoft Defender Real-Time Protection through Windows Security.
+
+=============================================
+
+Guest Account
+-------------
+Explanation: The Windows Guest Account is a built-in account intended to provide limited temporary access to a computer. For most personal and small-business systems, the account is unnecessary and should remain disabled unless specifically required.
+
+Expected: Disabled
+Actual: Disabled
+Result: PASS
+Severity: MEDIUM
+
+Assessment: The current configuration matches the expected security baseline.
+Risk if Misconfigured: An enabled Guest account can provide unnecessary access to the system and increase the system's attack surface.
+Recommended Action: No immediate remediation is required. Maintain the expected secure state. Disable the Windows Guest account unless it is specifically required.
+
+=============================================

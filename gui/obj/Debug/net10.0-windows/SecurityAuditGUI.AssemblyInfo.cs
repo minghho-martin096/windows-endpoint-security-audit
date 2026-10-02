@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecurityAuditGUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f3e3da27bc830e40c73b8ad5d8863d3a41893e5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+533c6658d3fca46d11f628c30d9deae8528fd14a")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecurityAuditGUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecurityAuditGUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

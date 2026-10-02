@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Project\\Github\\windows-endpoint-security-audit\\gui\\SecurityAuditGUI.csproj": {}
+    "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Projects\\Github\\windows-endpoint-security-audit\\gui\\SecurityAuditGUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Project\\Github\\windows-endpoint-security-audit\\gui\\SecurityAuditGUI.csproj": {
+    "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Projects\\Github\\windows-endpoint-security-audit\\gui\\SecurityAuditGUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Project\\Github\\windows-endpoint-security-audit\\gui\\SecurityAuditGUI.csproj",
+        "projectUniqueName": "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Projects\\Github\\windows-endpoint-security-audit\\gui\\SecurityAuditGUI.csproj",
         "projectName": "SecurityAuditGUI",
-        "projectPath": "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Project\\Github\\windows-endpoint-security-audit\\gui\\SecurityAuditGUI.csproj",
+        "projectPath": "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Projects\\Github\\windows-endpoint-security-audit\\gui\\SecurityAuditGUI.csproj",
         "packagesPath": "C:\\Users\\homin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Project\\Github\\windows-endpoint-security-audit\\gui\\obj\\",
+        "outputPath": "C:\\Users\\homin\\OneDrive\\Desktop\\43001 Cybersecurity Challenge Studio\\Projects\\Github\\windows-endpoint-security-audit\\gui\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\homin\\AppData\\Roaming\\NuGet\\NuGet.Config"
