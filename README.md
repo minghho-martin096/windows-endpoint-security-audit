@@ -8,7 +8,7 @@ The Windows Endpoint Security Audit is a lightweight cybersecurity tool designed
 
 The application automatically examines selected Windows security configurations, determines whether they meet the expected baseline, and displays the results through a graphical user interface.
 
-When an insecure configuration is detected, the application provides a severity rating, an explanation of the associated security risk, and a recommended remediation action. Audit results can also be exported as a timestamped security report.
+The application provides a predefined severity classification, an explanation of each security control, information about the associated security risk, and a recommended action. Audit results can also be exported as a timestamped security report.
 
 ## Team Members
 
@@ -90,7 +90,7 @@ windows-endpoint-security-audit/
 │   ├── baseline.json
 │   └── security_rules.json
 ├── docs/
-│   └── initial_checks/
+│   └── initial_checks.md
 ├── gui/
 │   ├── App.xaml
 │   ├── App.xaml.cs
@@ -123,7 +123,7 @@ The application is designed for Windows and requires:
 - Python 3
 - .NET SDK
 - PowerShell
-- Microsoft Defender
+- Microsoft Defender Antivirus
 
 Some security information may require the application or terminal to be run with Administrator privileges.
 
@@ -213,13 +213,7 @@ Testing included:
 - Remediation testing
 - Verification that remediated configurations return to PASS
 
-Testing evidence is stored under:
-
-```text
-docs/evidence/
-```
-
-## Development Status
+Testing evidence, screenshots, and generated results are included separately as part of the Milestone B submission evidence.
 
 ## Development Status
 
