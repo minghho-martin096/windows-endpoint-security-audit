@@ -212,4 +212,4 @@ docs/evidence/
 
 ## Development Status
 
-The project is currently under development as part of the UTS Cybersecurity Challenge Studio.
+The project is currently under development as part of the 2026 UTS Cybersecurity Challenge Studio class.
