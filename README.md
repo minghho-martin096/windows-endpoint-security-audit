@@ -20,7 +20,7 @@ When an insecure configuration is detected, the application provides a severity 
 The application currently audits the following Windows security settings:
 
 - Windows Firewall
-- Microsoft Defender
+- Microsoft Defender Antivirus
 - Microsoft Defender Real-Time Protection
 - Windows Guest Account
 
@@ -36,15 +36,18 @@ The expected security baseline is:
 ## Features
 
 - Automated Windows security configuration auditing
-- Predefined security baseline
+- Project-defined security baseline
 - PASS and FAIL assessment of security configurations
-- Severity ratings for security findings
+- Predefined severity classifications
+- Security control explanations
 - Security risk explanations
 - Remediation recommendations
 - Graphical user interface
 - Visual PASS and FAIL indicators
-- Detailed information for detected security issues
+- Clickable detailed information for each security control
+- Expected and actual configuration comparison
 - Timestamped text report generation
+- Overall audit summary in generated reports
 - Windows 11 virtual machine testing
 
 ## Application Architecture
@@ -87,15 +90,18 @@ windows-endpoint-security-audit/
 │   ├── baseline.json
 │   └── security_rules.json
 ├── docs/
-│   └── evidence/
+│   └── initial_checks/
 ├── gui/
 │   ├── App.xaml
 │   ├── App.xaml.cs
+│   ├── AssemblyInfo.cs
+│   ├── CheckResults.cs
+│   ├── CyberChallengeUI.slnx
 │   ├── MainWindow.xaml
 │   ├── MainWindow.xaml.cs
-│   ├── CheckResults.cs
 │   └── SecurityAuditGUI.csproj
 ├── reports/
+│   ├── __init__.py
 │   ├── generated/
 │   └── report_generator.py
 ├── src/
@@ -103,6 +109,7 @@ windows-endpoint-security-audit/
 │   ├── gui_bridge.py
 │   ├── report_bridge.py
 │   └── main.py
+├── .gitignore
 ├── tests/
 ├── README.md
 └── requirements.txt
@@ -156,7 +163,7 @@ Select **Run Security Audit** to perform the security assessment.
 
 The application will display a PASS or FAIL result for each security check.
 
-If a check fails, the Audit Details section displays the severity, security risk, and recommended remediation.
+After the audit is complete, each security check can be selected to view additional information in the Audit Details section. This includes an explanation of the security control, the current result, expected and actual configuration states, severity classification, associated security risk, and recommended action.
 
 ## Generating a Security Report
 
@@ -170,12 +177,14 @@ reports/generated/
 
 A report contains:
 
+- Overall audit summary
+- Explanation of each security control
 - Expected configuration
 - Actual configuration
 - PASS or FAIL result
-- Severity
-- Risk explanation for failed checks
-- Remediation recommendation for failed checks
+- Predefined severity classification
+- Security risk information
+- Recommended action
 
 ## Command-Line Usage
 
@@ -212,4 +221,6 @@ docs/evidence/
 
 ## Development Status
 
-The project is currently under development as part of the 2026 UTS Cybersecurity Challenge Studio class.
+## Development Status
+
+The core Windows Endpoint Security Audit prototype has been implemented and tested as part of the 2026 UTS Cybersecurity Challenge Studio class. Current work focuses on project documentation, evaluation, and preparation of the Milestone B submission.
