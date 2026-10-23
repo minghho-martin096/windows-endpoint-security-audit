@@ -135,3 +135,6 @@ def generate_report(results):
         file.write(report_text)
 
     return report_text, output_path
+
+
+
