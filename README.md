@@ -1,64 +1,79 @@
-# Windows Endpoint Security Audit
+Windows Endpoint Security Audit:
+
 
 A Windows endpoint security auditing tool developed for the UTS Cybersecurity Challenge Studio.
 
-## Overview
 
-The Windows Endpoint Security Audit is a lightweight cybersecurity tool designed to assess selected Windows security settings against a predefined security baseline.
+Overview:
+
+The Windows Endpoint Security Audit (Wesa) is a lightweight cybersecurity tool designed to assess selected Windows security settings against a predefined security baseline.
 
 The application automatically examines selected Windows security configurations, determines whether they meet the expected baseline, and displays the results through a graphical user interface.
 
-The application provides a predefined severity classification, an explanation of each security control, information about the associated security risk, and a recommended action. Audit results can also be exported as a timestamped security report.
+The application provides a predefined severity classification, an explanation of each security control, information about the associated security risk, and a recommended action. Where a security control fails, the application can open the Windows page where the setting can be corrected. Audit results can also be exported as a timestamped security report.
 
-## Team Members
+The application can be run from source or as a standalone packaged application (Wesa.exe) that does not require Python or the .NET runtime to be installed.
 
-- Martin
-- Jordan
 
-## Current Security Checks
+Team Members:
+Martin
+Jordan
+
+
+Current Security Checks:
 
 The application currently audits the following Windows security settings:
 
-- Windows Firewall
-- Microsoft Defender Antivirus
-- Microsoft Defender Real-Time Protection
-- Windows Guest Account
+Windows Firewall
+Microsoft Defender Antivirus
+Microsoft Defender Real-Time Protection
+Windows Guest Account
+User Account Control
+Remote Desktop
+
 
 The expected security baseline is:
 
-| Security Check | Expected Configuration |
-| --- | --- |
-| Windows Firewall | Enabled |
-| Microsoft Defender | Enabled |
-| Defender Real-Time Protection | Enabled |
-| Guest Account | Disabled |
+Security Check	Expected Configuration
+Windows Firewall	Enabled
+Microsoft Defender	Enabled
+Defender Real-Time Protection	Enabled
+Guest Account	Disabled
+User Account Control	Enabled
+Remote Desktop	Disabled
 
-## Features
 
-- Automated Windows security configuration auditing
-- Project-defined security baseline
-- PASS and FAIL assessment of security configurations
-- Predefined severity classifications
-- Security control explanations
-- Security risk explanations
-- Remediation recommendations
-- Graphical user interface
-- Visual PASS and FAIL indicators
-- Clickable detailed information for each security control
-- Expected and actual configuration comparison
-- Timestamped text report generation
-- Overall audit summary in generated reports
-- Windows 11 virtual machine testing
+The User Account Control check confirms that UAC is switched on. It does not assess the notification level. The Remote Desktop check reads whether the setting allows remote connections. It does not confirm whether the service is running or reachable.
 
-## Application Architecture
+
+Features:
+Automated Windows security configuration auditing
+Project-defined security baseline
+PASS and FAIL assessment of security configurations
+Predefined severity classifications
+Security control explanations
+Security risk explanations
+Remediation recommendations
+Graphical user interface
+Green tick and red cross PASS and FAIL indicators, shown alongside the PASS or FAIL text
+Clickable detailed information for each security control
+Button that opens the relevant Windows settings page for a failed control
+Expected and actual configuration comparison
+Settings that cannot be read are reported as a failure ("Could not be checked") instead of a pass
+All Windows settings are read in a single PowerShell session for faster audits
+Timestamped text report generation
+Overall audit summary in generated reports
+Standalone packaged application (Wesa.exe)
+Windows 11 virtual machine testing
+Application Architecture
+
 
 The project uses a combination of Python and C#.
 
 The Python backend performs the security checks, evaluates the results against the security baseline, and handles report generation.
 
-The C# WPF frontend provides the graphical user interface and communicates with the Python backend using JSON.
+The C# WPF frontend provides the graphical user interface and communicates with the Python backend using JSON. In the packaged application, the Python backend is bundled as wesa_backend.exe and is started by Wesa.exe.
 
-```text
 WPF GUI
    |
    v
@@ -74,18 +89,24 @@ Audit Service
 Windows Security Checks
    |
    v
+System State Reader
+   |
+   v
 PowerShell / Windows
-```
 
-## Project Structure
 
-```text
+Project Structure
+
 windows-endpoint-security-audit/
 ├── checks/
 │   ├── firewall.py
 │   ├── defender.py
 │   ├── defender_realtime.py
-│   └── guest_account.py
+│   ├── guest_account.py
+│   ├── uac.py
+│   ├── remote_desktop.py
+│   ├── system_state.py
+│   └── powershell_helper.py
 ├── config/
 │   ├── baseline.json
 │   └── security_rules.json
@@ -106,6 +127,7 @@ windows-endpoint-security-audit/
 │   └── report_generator.py
 ├── src/
 │   ├── audit_service.py
+│   ├── backend_main.py
 │   ├── gui_bridge.py
 │   ├── report_bridge.py
 │   └── main.py
@@ -113,108 +135,106 @@ windows-endpoint-security-audit/
 ├── tests/
 ├── README.md
 └── requirements.txt
-```
 
-## Requirements
+
+Requirements
+Windows 11 
+Microsoft Defender 
+PowerShell 
+
+
+The packaged application is a separate folder built from that source. It contains the compiled program and its configuration, not the source files:
+
+
+Wesa/
+├── Wesa.exe
+├── backend/
+│   ├── wesa_backend.exe
+│   └── _internal/
+├── config/
+│   ├── baseline.json
+│   └── security_rules.json
+├── reports/
+│   └── generated/
+└── README.md
+
+
+Wesa.exe is the compiled WPF interface (the gui folder). backend/wesa_backend.exe is the compiled Python backend (the checks, src and reports code). The reports/generated folder is created the first time a report is generated.
 
 The application is designed for Windows and requires:
 
-- Windows 11
-- Python 3
-- .NET SDK
-- PowerShell
-- Microsoft Defender Antivirus
+Windows 11
+Microsoft Defender Antivirus
+
+
+The packaged Wesa.exe application does not need Python or the .NET runtime installed.
 
 Some security information may require the application or terminal to be run with Administrator privileges.
 
-## Setup
 
-Clone the repository and navigate to the project directory.
+Setup:
 
-Create a Python virtual environment:
+Install the published file from the dedicated github page: https://github.com/minghho-martin096/windows-endpoint-security-audit
 
-```powershell
-python -m venv .venv
-```
+Extract the zipped file if necessary
 
-Install the Python requirements:
+Click into the file and ensure all 5 files are there: Backend, Config, Reports, ReadMe, Wesa.exe
 
-```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-```
+The application has been setup and is ready for use. 
 
-Build the WPF application:
 
-```powershell
-dotnet build gui\SecurityAuditGUI.csproj
-```
+Running the application and completeing and audit:
 
-## Running the GUI
+Inside the Wesa file that was downloaded run Wesa.exe 
+(Administrator access my be required)
 
-From the project root, run:
+Select the "Run Security Audit" Button and wait for results
 
-```powershell
-dotnet run --project gui\SecurityAuditGUI.csproj
-```
+View results and follow recommend instructions 
 
-The Windows Endpoint Security Audit interface will open.
 
-Select **Run Security Audit** to perform the security assessment.
+Generating a Security Report:
 
-The application will display a PASS or FAIL result for each security check.
-
-After the audit is complete, each security check can be selected to view additional information in the Audit Details section. This includes an explanation of the security control, the current result, expected and actual configuration states, severity classification, associated security risk, and recommended action.
-
-## Generating a Security Report
-
-After running an audit, select **Generate Report**.
+After running an audit, select Generate Report.
 
 Reports are saved as timestamped text files under:
 
-```text
+text
 reports/generated/
-```
+
+When running the packaged application, this folder is created next to Wesa.exe.
 
 A report contains:
 
-- Overall audit summary
-- Explanation of each security control
-- Expected configuration
-- Actual configuration
-- PASS or FAIL result
-- Predefined severity classification
-- Security risk information
-- Recommended action
+Overall audit summary
+Explanation of each security control
+Expected configuration
+Actual configuration
+PASS or FAIL result
+Predefined severity classification
+Security risk information
+Recommended action
+Command-Line Usage
 
-## Command-Line Usage
 
-The Python backend can also be executed without the graphical interface.
-
-From the project root:
-
-```powershell
-python -m src.main
-```
-
-This performs the security audit and generates a text report.
-
-## Testing
-
-The application has been tested in a Windows 11 virtual machine using both secure and intentionally misconfigured system states.
+The application has been tested in a Windows 11 virtual machine using both secure and intentionally misconfigured system states:
 
 Testing included:
 
-- Clean baseline testing
-- Disabled Windows Firewall detection
-- Enabled Guest Account detection
-- Disabled Microsoft Defender Real-Time Protection detection
-- Severity and remediation verification
-- Report generation
-- Remediation testing
-- Verification that remediated configurations return to PASS
+Clean baseline testing
+Disabled Windows Firewall detection
+Enabled Guest Account detection
+Disabled Microsoft Defender Real-Time Protection detection
+Severity and remediation verification
+Report generation
+Remediation testing
+Verification that remediated configurations return to PASS
 
-Testing evidence, screenshots, and generated results are included separately as part of the Milestone B submission evidence.
+These tests covered the original four security checks. Testing of the User Account Control and Remote Desktop checks, and of the packaged application, in the Windows 11 virtual machine is still to be completed.
 
-## Development Status
+Testing evidence, screenshots, and generated results are included separately as part of the portfolio submission evidence.
 
-The core Windows Endpoint Security Audit prototype has been implemented and tested as part of the 2026 UTS Cybersecurity Challenge Studio class. Current work focuses on project documentation, evaluation, and preparation of the Milestone B submission.
+
+Development Status:
+
+The core Windows Endpoint Security Audit prototype has been implemented and tested as part of the 2026 UTS Cybersecurity Challenge Studio class. Since the first version, the application has been extended to audit six security controls, display green tick and red cross indicators, open the relevant Windows settings page for failed controls, read Windows settings in a single PowerShell session for faster audits, and run as a standalone packaged application. Current work focuses on virtual machine testing of the new controls, project documentation, and evaluation.
